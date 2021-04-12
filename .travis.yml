@@ -1,13 +1,5 @@
 language: cpp
 
-deploy:
-  provider: releases
-  file:
-    - "*.rpm"
-    - "*.deb"
-  skip_cleanup: true
-  draft: true
-
 addons:
   apt:
     packages:
