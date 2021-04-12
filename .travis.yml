@@ -1,32 +1,22 @@
 language: cpp
 
+addons:
+  apt:
+    packages:
+    - rpm
+
 jobs:
   include:
     - os: linux
       compiler: gcc
-      
-    - os: linux
-      compiler: clang
 
 script:
 
-- cd ./formatter_lib
 - cmake -H. -B_build
 - cmake --build _build
+- cd _build
+- cpack -G TGZ
+- cpack -G DEB
+- cpack -G RPM
 
-- cd ../formatter_ex_lib
-- cmake -H. -B_build
-- cmake --build _build
-
-- cd ../solver_lib
-- cmake -H. -B_build
-- cmake --build _build
-
-- cd ../solver_application
-- cmake -H. -B_build
-- cmake --build _build
-
-- cd ../hello_world_application
-- cmake -H. -B_build
-- cmake --build _build
 
