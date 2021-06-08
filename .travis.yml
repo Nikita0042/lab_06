@@ -17,6 +17,5 @@ script:
 - cd _build
 - cpack -G TGZ
 - cpack -G DEB
-- cpack -G RPM .
-
+- cpack -G RPM 
 
